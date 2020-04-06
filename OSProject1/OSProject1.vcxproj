@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="OSMain.c" />
     <ClCompile Include="Process.c" />
   </ItemGroup>
   <ItemGroup>
