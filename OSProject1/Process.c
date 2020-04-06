@@ -20,8 +20,21 @@ Data LPop(List* plist) {
 	for (int i = 0; i < (plist->numofdata)-1; i++) {
 		plist->cycleArr[i] = plist->cycleArr[i + 1];
 	}
+	
 	(plist->numofdata)--;
 	return tmp;
+}
+
+void LMod(List* plist, int var) {
+	(plist->cycleArr[0]) -= var;
+}
+
+int LPeek(List* plist) {
+	return plist->cycleArr[0];
+}
+
+int LIsZero(List* plist) {
+	return !(plist->cycleArr[0]);
 }
 
 Process* PInit(char* buffer) {
@@ -69,17 +82,25 @@ void showProcessInfo(Process* pp) {
 	printf("\n");
 }
 
+void Upgrade(Process* pp) {
+	(pp->Queue)--;
+}
+
+void Demote(Process* pp) {
+	(pp->Queue)++;
+}
+
 void QInit(Queue* pq) {
 	pq->front = NULL;
 	pq->back = NULL;
 	pq->numofdata = 0;
 }
 
-void QPush(Queue* pq, pdata data) {
+void QPush(Queue* pq, Process* pp) {
 	
 	Node* pNode = (Node*)malloc(sizeof(Node));
 
-	pNode->data = data;
+	pNode->data = pp;
 	pNode->next = NULL;
 
 	if (pq->numofdata==0) {
@@ -95,27 +116,65 @@ void QPush(Queue* pq, pdata data) {
 
 }
 
-pdata QPop(Queue* pq) {
+Process* QPop(Queue* pq) {
 	Node* rnode = pq->back;
-	pdata rdata = rnode->data;
+	Process* rproc = rnode->data;
 	if (pq->numofdata==1) {
 		free(rnode);
 		(pq->numofdata)--;
-		return rdata;
+		return rproc;
 	}
 		
 	else {
 		pq->back = pq->back->next;
 		free(rnode);
 		(pq->numofdata)--;
-		return rdata;
+		return rproc;
 	}
 }
 
-pdata QSearch(Queue* pq) {
+Process* QSearch(Queue* pq) {
 	return pq->back->data;
 }
 
+
+
 int QIsEmpty(Queue* pq) {
 	return !(pq->numofdata);
+}
+
+int ProcessArrivalTime(Process* pp) {
+	return pp->arrivalTime;
+	
+}
+
+int ProcessPriority(Process* pp) {
+	return pp->Queue;
+}
+
+void RoundRobin(Queue* srcQ) {
+	Process* cpuProcess=QSearch(srcQ);
+	/*int timeCount = 0;
+	for (int i = 0; i < timeQuantum; i++) {
+		LMod(&cpuProcess.CPU, 1);
+		timeCount++;
+		timeStamp++;
+		if (LPeek(&cpuProcess) == 0)
+			break;
+	}
+	return timeCount;*/
+	LMod(&(cpuProcess->CPU), 1);
+
+
+	
+}
+
+void IO(Queue* ioQ) {
+	Node* tmp = ioQ->back;
+	while (ioQ->back != ioQ->front) {
+		LMod(&(ioQ->back->data->IO), 1);
+		ioQ->back = ioQ->back->next;
+	}
+	ioQ->back = tmp;
+	
 }
