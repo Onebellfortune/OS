@@ -171,9 +171,14 @@ void RoundRobin(Queue* srcQ) {
 
 void IO(Queue* ioQ) {
 	Node* tmp = ioQ->back;
-	while (ioQ->back != ioQ->front) {
+	if(ioQ->numofdata==1){
 		LMod(&(ioQ->back->data->IO), 1);
-		ioQ->back = ioQ->back->next;
+	}
+	else if (ioQ->numofdata > 1) {
+		while(ioQ->back!=ioQ->front){
+			LMod(&(ioQ->back->data->IO), 1);
+			ioQ->back = ioQ->back->next;
+		}
 	}
 	ioQ->back = tmp;
 	

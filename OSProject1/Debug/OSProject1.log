@@ -1,4 +1,14 @@
-﻿  OSMain.c
-c:\users\hhj\documents\github\os\osproject1\osmain.c(16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: 'fopen' 선언을 참조하십시오.
-  OSProject1.vcxproj -> C:\Users\HHJ\Documents\GitHub\OS\Debug\OSProject1.exe
+﻿  Process.c
+c:\users\jongun\desktop\std\os\osproject1\process.c(41): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(46): warning C4013: 'strtok'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(47): warning C4013: 'atoi'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(48): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(50): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(52): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(55): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(58): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(62): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(46): warning C4047: '초기화 중': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jongun\desktop\std\os\osproject1\process.c(123): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  OSProject1.vcxproj -> C:\Users\Jongun\Desktop\std\OS\Debug\OSProject1.exe
+  OSProject1.vcxproj -> C:\Users\Jongun\Desktop\std\OS\Debug\OSProject1.pdb (Full PDB)
